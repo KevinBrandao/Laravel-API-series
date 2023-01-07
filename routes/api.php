@@ -19,3 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/series', [\App\Http\Controllers\Api\SeriesController::class, 'index']);
+Route::post('/series', [\App\Http\Controllers\Api\SeriesController::class, 'store']);
+Route::store('/series', [\App\Http\Controllers\Api\SeriesController::class, 'store']);
+Route::show('/series', [\App\Http\Controllers\Api\SeriesController::class, 'show']);
+Route::update('/series', [\App\Http\Controllers\Api\SeriesController::class, 'update']);
+Route::destroy('/series', [\App\Http\Controllers\Api\SeriesController::class, 'destroy']);
