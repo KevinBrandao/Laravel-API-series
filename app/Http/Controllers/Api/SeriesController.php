@@ -33,13 +33,11 @@ class SeriesController extends Controller
         return $series;
     }
 
-    public function update(Series $series, SeriesFormRequest $request)
-    {
-       $series->fill($request->all());
-       $series->save();
-
-       return $series;
-    }
+    public function update(int $series, SeriesFormRequest $request)
+{
+    Series::where('id', $series)->update($request->all());
+    // retorno de uma resposta que não contenha a série, já que não fizemos um `SELECT` 
+}
 
     public function destroy(int $series)
     {
