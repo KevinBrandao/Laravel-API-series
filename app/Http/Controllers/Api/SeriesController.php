@@ -13,9 +13,13 @@ class SeriesController extends Controller
         # code...
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return Series::all();
+        $query = Series::query();
+        if ($request->has('nome')) {
+            $query->where('nome', $request->nome);
+        }
+        return $query->paginete(5);
     }
 
 
